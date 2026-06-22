@@ -1,0 +1,19 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+
+{% block title %}
+Post
+{% endblock title %}
+
+
+{% block content %}
+<h1>{{ post.title|censor }}</h1>
+<h1>{{ post.text|censor }}</h1>
+<h1>{{ post.time_of_posting|date:'d M Y' }}</h1>
+{% for cat in post.category.all %}
+    <h1>{{ cat.category_name }}</h1>
+{% endfor %}
+
+{% endblock content %}
